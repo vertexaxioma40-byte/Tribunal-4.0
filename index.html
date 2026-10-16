@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VERTEX AXIOMA® - Módulo de Gobernanza Descentralizada</title>
+    <style>
+        :root {
+            --bg-dark: #0f172a;
+            --card-bg: #1e293b;
+            --accent-cyan: #06b6d4;
+            --accent-green: #10b981;
+            --accent-red: #ef4444;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: #334155;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            margin: 0;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header {
+            text-align: center;
+            max-width: 800px;
+            margin-bottom: 2.5rem;
+        }
+
+        .header h1 {
+            color: var(--accent-cyan);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+        }
+
+        .header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        .comparison-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            width: 100%;
+            max-width: 1100px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+        }
+
+        .card.bad {
+            border-top: 4px solid var(--accent-red);
+        }
+
+        .card.good {
+            border-top: 4px solid var(--accent-green);
+        }
+
+        .card h2 {
+            font-size: 1.3rem;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .badge {
+            font-size: 0.75rem;
+            padding: 0.25rem 0.6rem;
+            border-radius: 20px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .badge-red { background: rgba(239, 68, 68, 0.2); color: var(--accent-red); }
+        .badge-green { background: rgba(16, 185, 129, 0.2); color: var(--accent-green); }
+
+        .flow-step {
+            background: rgba(15, 23, 42, 0.6);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            border-left: 3px solid var(--border-color);
+        }
+
+        .flow-step.active {
+            border-left-color: var(--accent-cyan);
+        }
+
+        .flow-step h4 {
+            margin: 0 0 0.3rem 0;
+            color: var(--accent-cyan);
+        }
+
+        .flow-step p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* Interactive Simulation Box */
+        .interactive-box {
+            grid-column: 1 / -1;
+            background: var(--card-bg);
+            border: 1px solid var(--accent-cyan);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        .btn-action {
+            background: var(--accent-cyan);
+            color: #000;
+            border: none;
+            padding: 0.8rem 1.8rem;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-action:hover {
+            background: #22d3ee;
+            transform: translateY(-2px);
+        }
+
+        .result-box {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background: rgba(6, 182, 212, 0.1);
+            border-radius: 8px;
+            font-family: monospace;
+            color: var(--accent-cyan);
+            display: none;
+        }
+
+        .hash-tag {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            word-break: break-all;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>VERTEX AXIOMA® | Asignación Transparente de Arbitrios</h1>
+        <p>Democratización del ejercicio profesional vs. Concentración de poder burocrático</p>
+    </div>
+
+    <div class="comparison-container">
+        
+        <!-- TRADICIONAL -->
+        <div class="card bad">
+            <h2>Modelo Tradicional <span class="badge badge-red">Riesgo de Cooptación</span></h2>
+            <div class="flow-step">
+                <h4>1. Círculo Cerrado</h4>
+                <p>Nombramiento discrecional de 3 árbitros/abogados por Decreto o Resolución interna.</p>
+            </div>
+            <div class="flow-step">
+                <h4>2. Monopolio Técnico</h4>
+                <p>El 100% de los peritajes y licitaciones se canalizan en las mismas firmas.</p>
+            </div>
+            <div class="flow-step">
+                <h4>3. Vunerabilidad del Sistema</h4>
+                <p>Opacidad en el criterio de selección y vulnerabilidad a presión de intereses.</p>
+            </div>
+        </div>
+
+        <!-- AXIOMA -->
+        <div class="card good">
+            <h2>Modelo AXIOMA® <span class="badge badge-green">Gobernanza Inmutable</span></h2>
+            <div class="flow-step active">
+                <h4>1. Padrón Federal Abierto</h4>
+                <p>Validación automática de matrícula activa con Colegios Profesionales y Gremios.</p>
+            </div>
+            <div class="flow-step active">
+                <h4>2. Sorteo Criptográfico Autónomo</h4>
+                <p>Asignación aleatoria auditada por Smart-Contract en tiempo real.</p>
+            </div>
+            <div class="flow-step active">
+                <h4>3. Trazabilidad & Petrificación</h4>
+                <p>Firma digital inmutable del dictamen y métricas públicas de desempeño (Open Data).</p>
+            </div>
+        </div>
+
+        <!-- SIMULADOR INTERACTIVO PARA LA DEMO -->
+        <div class="interactive-box">
+            <h3>Simulador de Asignación Descentralizada de Peritaje</h3>
+            <p style="color: var(--text-muted); margin-bottom: 1.5rem;">
+                Presione para ejecutar el algoritmo de selección transparente sobre el padrón colegiado.
+            </p>
+            <button class="btn-action" onclick="ejecutarSorteo()">Ejecutar Sorteo Algorítmico AXIOMA®</button>
+
+            <div id="result" class="result-box">
+                <div id="professional-assigned"></div>
+                <div id="hash-proof" class="hash-tag"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function ejecutarSorteo() {
+            const profesionales = [
+                { nombre: "Dra. Gómez (Matrícula CPCECABA 40.129)", area: "Auditoría Forense Digital" },
+                { nombre: "Ing. Rossi (Matrícula CPII 12.840)", area: "Telemetry & Drones" },
+                { nombre: "Lic. Benítez (Matrícula CASI 8.492)", area: "Derecho Administrativo 4.0" },
+                { nombre: "Cont. Arapian (Matrícula CPCEPBA 33.104)", area: "Contabilidad de Activos Reales" }
+            ];
+
+            const aleatorio = profesionales[Math.floor(Math.random() * profesionales.length)];
+            
+            // Generador de Hash simulado (SHA-256 visual)
+            const array = new Uint8Array(16);
+            crypto.getRandomValues(array);
+            const hashSimulado = Array.from(array, byte => byte.toString(16).padStart(2, '0')).join('');
+
+            const resultBox = document.getElementById('result');
+            const profElement = document.getElementById('professional-assigned');
+            const hashElement = document.getElementById('hash-proof');
+
+            profElement.innerHTML = `<strong>Profesional Seleccionado:</strong> ${aleatorio.nombre} <br> <strong>Especialidad:</strong> ${aleatorio.area}`;
+            hashElement.innerHTML = `<br><strong>Proof of Selection (Hash Inmutable):</strong><br>0x${hashSimulado}8f4a29c01b...`;
+
+            resultBox.style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>
